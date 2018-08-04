@@ -12,20 +12,20 @@ $borrowuid = $_POST['borrowuid'];
 	$transuid = $uid + 1;
 	// add that new value to text file again for next use
 	file_put_contents($file, $transuid);
-$row = mysql_query("SELECT * FROM wallet WHERE useruid='$useruid' ");
-$row1 = mysql_fetch_array("$row");
+$row = mysqli_query($con,"SELECT * FROM wallet WHERE useruid='$useruid' ");
+$row1 = mysqli_fetch_array("$row");
 $balance = $row1['balance'];
 if($amount<=$balance)
 {
-$qry5 = mysql_query("INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$transuid', '$balance') ");
+$qry5 = mysqli_query($con,"INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$transuid', '$balance') ");
 $balance-=$amount;
-$qry6 = mysql_query("UPDATE wallet SET balance=$balance WHERE useruid='$useruid' ");
-$qry = mysql_query("INSERT INTO invest (amount, useruid, borrowuid, investuid) VALUES ('$amount', '$useruid', '$borrowuid', '$uid') ")or die(mysql_error());
-$sql = mysql_query("SELECT * FROM borrow WHERE borrowuid='$borrowuid' ")or die(mysql_error());
-$sql1 = mysql_fetch_array($sql);
+$qry6 = mysqli_query($con,"UPDATE wallet SET balance=$balance WHERE useruid='$useruid' ");
+$qry = mysqli_query($con,"INSERT INTO invest (amount, useruid, borrowuid, investuid) VALUES ('$amount', '$useruid', '$borrowuid', '$uid') ")or die(mysqli_error());
+$sql = mysqli_query($con,"SELECT * FROM borrow WHERE borrowuid='$borrowuid' ")or die(mysqli_error());
+$sql1 = mysqli_fetch_array($sql);
 $sql2 = $sql1['collect'];
 $collect = $sql2 + $amount;
-$qry1 = mysql_query("UPDATE borrow SET collect='$collect' WHERE borrowuid='$borrowuid' ")or die(mysql_error());
+$qry1 = mysqli_query($con,"UPDATE borrow SET collect='$collect' WHERE borrowuid='$borrowuid' ")or die(mysqli_error());
 if($qry)
 {
 	?>

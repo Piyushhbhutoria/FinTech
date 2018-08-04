@@ -5,8 +5,8 @@ $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 $passwrd = base64_encode($_POST['pass']);
 $repasswrd = base64_encode($_POST['repass']);
 $contact = htmlspecialchars($_POST['contact'], ENT_QUOTES, 'UTF-8');
-$qry = mysql_query("SELECT * FROM user WHERE email='$email' ");
-$qry1 = mysql_num_rows($qry);
+$qry = mysqli_query($con,"SELECT * FROM user WHERE email='$email' ");
+$qry1 = mysqli_num_rows($qry);
 	$file = 'count.txt';
 	//get the number from the file
 	$uniq = file_get_contents($file);
@@ -16,11 +16,11 @@ $qry1 = mysql_num_rows($qry);
 	file_put_contents($file, $uid);
 if($qry1==0 and $passwrd==$repasswrd)
 {
-	$sql = mysql_query("INSERT INTO user (name, email, password, contact, uid) VALUES ('$name', '$email', '$passwrd', '$contact' ,'$uid') ")or die(mysql_error());
-	$sql1 = mysql_query("INSERT INTO wallet (useruid, balance) VALUES ('$uid','0') ")or die(mysql_error());
-	$qry = mysql_query("SELECT * FROM user WHERE email='$email' and password='$passwrd' ")or die(mysql_error());
+	$sql = mysqli_query($con,"INSERT INTO user (name, email, password, contact, uid) VALUES ('$name', '$email', '$passwrd', '$contact' ,'$uid') ")or die(mysqli_error());
+	$sql1 = mysqli_query($con,"INSERT INTO wallet (useruid, balance) VALUES ('$uid','0') ")or die(mysqli_error());
+	$qry = mysqli_query($con,"SELECT * FROM user WHERE email='$email' and password='$passwrd' ")or die(mysqli_error());
 	session_start();
-	$row = mysql_fetch_array($qry);
+	$row = mysqli_fetch_array($qry);
 	$_SESSION['log']=$row;
 	$keys="user";
 	$_SESSION['log1']=$keys;

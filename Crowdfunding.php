@@ -74,12 +74,12 @@ include('sessioncheck.php');
   <div class="flex-container">
     <?php
     $useruid = $_SESSION['log']['uid'];
-    $qry = mysql_query("SELECT * FROM borrowcrowd WHERE useruid!='$useruid' and amount!=collect ");
-    while($rows=mysql_fetch_array($qry))
+    $qry = mysqli_query($con,"SELECT * FROM borrowcrowd WHERE useruid!='$useruid' and amount!=collect ");
+    while($rows=mysqli_fetch_array($qry))
     {
       $useruid = $rows['useruid'];
-      $sql = mysql_query("SELECT * FROM user WHERE uid='$useruid' ")or die(mysql_error());
-      $sql1 = mysql_fetch_array($sql);
+      $sql = mysqli_query($con,"SELECT * FROM user WHERE uid='$useruid' ")or die(mysqli_error());
+      $sql1 = mysqli_fetch_array($sql);
       if($rows['logo']=="")
         $picture = "img/user.png";
       else

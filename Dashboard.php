@@ -83,8 +83,8 @@ include('config.php');
                                 <div class="a">
                                     <?php
                                     $useruid = $_SESSION['log']['uid'];
-                                    $row = mysql_query("SELECT * FROM wallet WHERE useruid='$useruid' ");
-                                    $row1 = mysql_fetch_array($row);
+                                    $row = mysqli_query($con,"SELECT * FROM wallet WHERE useruid='$useruid' ");
+                                    $row1 = mysqli_fetch_array($row);
                                     $balance = $row1['balance'];
                                     ?>
                                     <p id="wallet">Your wallet amount is <span><?php echo $balance; ?></span> </p>
@@ -153,8 +153,8 @@ include('config.php');
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $trans = mysql_query("SELECT * FROM transaction WHERE useruid='$useruid' ");
-                                                        while ($rows=mysql_fetch_array($trans)) 
+                                                        $trans = mysqli_query($con,"SELECT * FROM transaction WHERE useruid='$useruid' ");
+                                                        while ($rows=mysqli_fetch_array($trans)) 
                                                         {
                                                             ?>
                                                         <tr>
@@ -187,8 +187,8 @@ include('config.php');
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $invest = mysql_query("SELECT * FROM invest WHERE useruid='$useruid' ");
-                                                    while ($row=mysql_fetch_array($invest)) 
+                                                    $invest = mysqli_query($con,"SELECT * FROM invest WHERE useruid='$useruid' ");
+                                                    while ($row=mysqli_fetch_array($invest)) 
                                                     {
                                                         ?>
                                                     <tr>
@@ -196,8 +196,8 @@ include('config.php');
                                                         <td><?php echo $row['amount']; ?></td>
                                                         <?php
                                                         $borrowuid = $row['borrowuid'];
-                                                        $invest1 = mysql_query("SELECT * FROM borrow WHERE borrowuid='$borrowuid' ");
-                                                        $invest2 = mysql_fetch_array($invest1);
+                                                        $invest1 = mysqli_query($con,"SELECT * FROM borrow WHERE borrowuid='$borrowuid' ");
+                                                        $invest2 = mysqli_fetch_array($invest1);
 
                                                         ?>
                                                         <td><?php echo $invest2['title']; ?></td>
@@ -207,8 +207,8 @@ include('config.php');
                                                     }
                                                     ?>
                                                     <?php
-                                                    $invest = mysql_query("SELECT * FROM investcrowd WHERE useruid='$useruid' ");
-                                                    while ($row=mysql_fetch_array($invest)) 
+                                                    $invest = mysqli_query($con,"SELECT * FROM investcrowd WHERE useruid='$useruid' ");
+                                                    while ($row=mysqli_fetch_array($invest)) 
                                                     {
                                                         ?>
                                                     <tr>
@@ -216,8 +216,8 @@ include('config.php');
                                                         <td><?php echo $row['amount']; ?></td>
                                                         <?php
                                                         $borrowuid = $row['borrowuid'];
-                                                        $invest1 = mysql_query("SELECT * FROM borrowcrowd WHERE borrowuid='$borrowuid' ");
-                                                        $invest2 = mysql_fetch_array($invest1);
+                                                        $invest1 = mysqli_query($con,"SELECT * FROM borrowcrowd WHERE borrowuid='$borrowuid' ");
+                                                        $invest2 = mysqli_fetch_array($invest1);
 
                                                         ?>
                                                         <td><?php echo $invest2['title']; ?></td>
@@ -240,8 +240,8 @@ include('config.php');
                                 <div class="a bottom">
                                         <?php
                     $useruid = $_SESSION['log']['uid'];
-                    $qry = mysql_query("SELECT * FROM borrow WHERE useruid='$useruid' ");
-                    while($rows=mysql_fetch_array($qry))
+                    $qry = mysqli_query($con,"SELECT * FROM borrow WHERE useruid='$useruid' ");
+                    while($rows=mysqli_fetch_array($qry))
                     {
                         if($rows['logo']=="")
                             $picture = "img/user.png";

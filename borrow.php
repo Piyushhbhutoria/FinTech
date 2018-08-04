@@ -26,7 +26,7 @@ $useruid = $_SESSION['log']['uid'];
 	$uid = $uniq + 1 ;
 	// add that new value to text file again for next use
 	file_put_contents($file, $uid);
-$qry = mysql_query("INSERT INTO borrow (title, descrip, category, amount, part, timee, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', '$amount', '$part', '$time', '$useruid', '$uid', 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ")or die(mysql_error());
+$qry = mysqli_query($con,"INSERT INTO borrow (title, descrip, category, amount, part, timee, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', '$amount', '$part', '$time', '$useruid', '$uid', 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ")or die(mysqli_error());
 ?>
 <script>
 	alert("Your request is under process..");

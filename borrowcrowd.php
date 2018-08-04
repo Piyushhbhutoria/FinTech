@@ -13,7 +13,7 @@ $useruid = $_SESSION['log']['uid'];
 	$uid = $uniq + 1 ;
 	// add that new value to text file again for next use
 	file_put_contents($file, $uid);
-$qry = mysql_query("INSERT INTO borrowcrowd (title, descrip, category, amount, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', '$amount', '$useruid', '$uid', 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ")or die(mysql_error());
+$qry = mysqli_query($con,"INSERT INTO borrowcrowd (title, descrip, category, amount, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', '$amount', '$useruid', '$uid', 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ")or die(mysqli_error());
 ?>
 <script>
 	alert("Your request is under process..");

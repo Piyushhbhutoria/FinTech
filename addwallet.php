@@ -10,11 +10,11 @@ $file = 'count.txt';
 	// add that new value to text file again for next use
 	file_put_contents($file, $uid);
 $amt = $_POST['amount'];
-$qry = mysql_query("SELECT * FROM wallet WHERE useruid='$useruid' ")or die(mysql_error());
-$row = mysql_fetch_array($qry);
+$qry = mysqli_query($con,"SELECT * FROM wallet WHERE useruid='$useruid' ")or die(mysqli_error());
+$row = mysqli_fetch_array($qry);
 $balance = $row['balance']+$amt;
-$sql = mysql_query("UPDATE wallet SET balance='$balance' WHERE useruid='$useruid' ")or die(mysql_error());
-$sql1 = mysql_query("INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$uid', '$balance') ")or die(mysql_error());
+$sql = mysqli_query($con,"UPDATE wallet SET balance='$balance' WHERE useruid='$useruid' ")or die(mysqli_error());
+$sql1 = mysqli_query($con,"INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$uid', '$balance') ")or die(mysqli_error());
 if($sql)
 {
 	?>
