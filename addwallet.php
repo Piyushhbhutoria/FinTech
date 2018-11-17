@@ -3,12 +3,12 @@ session_start();
 include('config.php');
 $useruid = $_SESSION['log']['uid'];
 $file = 'count.txt';
-	//get the number from the file
-	$uniq = file_get_contents($file);
-	//add +1
-	$uid = $uniq + 1 ;
-	// add that new value to text file again for next use
-	file_put_contents($file, $uid);
+//get the number from the file
+$uniq = file_get_contents($file);
+//add +1
+$uid = $uniq + 1 ;
+// add that new value to text file again for next use
+file_put_contents($file, $uid);
 $amt = $_POST['amount'];
 $qry = mysqli_query($con,"SELECT * FROM wallet WHERE useruid='$useruid' ")or die(mysqli_error());
 $row = mysqli_fetch_array($qry);

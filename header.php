@@ -11,7 +11,7 @@ if(isset($_SESSION['log'])=="")
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.php"><img src="img/visudha.png" alt="visudha" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
+        <a href="index.php"><img src="img/visudha.png" alt="Fin-Tech" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="index.php">Header 1</a></h1>-->
       </div>
@@ -79,7 +79,7 @@ else if($_SESSION['log1']=="user")
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.php"><img src="img/visudha.png" alt="visudha" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
+        <a href="index.php"><img src="img/visudha.png" alt="Fin-Tech" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="index.php">Header 1</a></h1>-->
       </div>
@@ -147,7 +147,7 @@ else
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.php"><img src="img/visudha.png" alt="visudha" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
+        <a href="index.php"><img src="img/visudha.png" alt="Fin-Tech" style="width: 100px;margin-top: 15px;vertical-align: middle;" /></img></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="index.php">Header 1</a></h1>-->
       </div>
