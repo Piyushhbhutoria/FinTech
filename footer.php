@@ -7,7 +7,7 @@
           </div>
           <div class="credits">
             
-            Developed by <a href="#">VISUDHA</a>
+            Developed by <a href="#">Fin-Tech</a>
           </div>
         </div>
       </div>

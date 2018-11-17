@@ -1,13 +1,14 @@
 <?php
 session_start();
 include('config.php');
+include('sessioncheck.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Visudha|Dashboard</title>
+  <title>Fin-Tech|Dashboard</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">

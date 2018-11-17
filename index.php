@@ -7,7 +7,7 @@ include('config.php');
 
 <head>
   <meta charset="utf-8">
-  <title>Visudha</title>
+  <title>Fin-Tech</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -60,7 +60,7 @@ include('config.php');
     <div class="hero-container">
       <div class="wow fadeIn">
         <div class="hero-logo">
-          <img class="" src="img/visudha.png" alt="Visudha">
+          <img class="" src="img/visudha.png" alt="Fin-Tech">
         </div>
 
         <h1>All finances at one place.</h1>
@@ -86,7 +86,7 @@ include('config.php');
         <div class="col-md-12">
           <h3 class="section-title">Our Services</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">What all do we provide at Visudha.</p>
+          <p class="section-description">What all do we provide at Fin-Tech.</p>
         </div>
       </div>
 

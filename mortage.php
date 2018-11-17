@@ -55,7 +55,7 @@ include('sessioncheck.php');
     // If HTML headers have not already been sent, we'll print some here    
     if (!headers_sent()) {
         print("<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'><HTML>");
-        print("<head><title>Visudha|Mortgage Calculator</title></HEAD><BODY>");
+        print("<head><title>Fin-Tech|Mortgage Calculator</title></HEAD><BODY>");
         print("<body bgcolor='#ffffff'>");
         $print_footer = TRUE;
     } else {
