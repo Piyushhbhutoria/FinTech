@@ -1,7 +1,24 @@
-# Imperial - Free One Page Bootstrap Template
+# Fin-Tech
 
-*Thanks for downloading!*
+>**Feel Free To Contribute.**
 
-[BootstrapMade](https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/) is the author of this template.
+## This Repo is Fin-Tech Project using PHP7.x, PHPmyadmin, mySQL5.x 
 
-Get more [free templates](https://themewagon.com/theme_tag/free/) from [ThemeWagon](https://themewagon.com/)
+Features
+
+1. User account login
+2. Transaction History
+
+user test account - email@gmail.com  
+password - 1234  
+ 
+# Setup  
+
+Change credentials in config.php.  
+
+```php  
+<?php $con = mysqli_connect("localhost","user","password","database") or die(mysqli_error()); ?>  
+```  
+
+Open PHPmyadmin create a database named project.  
+Import the travel.sql file in database folder.  
