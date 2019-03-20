@@ -17,20 +17,20 @@ $sql = mysqli_query($con,"UPDATE wallet SET balance='$balance' WHERE useruid='$u
 $sql1 = mysqli_query($con,"INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$uid', '$balance') ")or die(mysqli_error());
 if($sql)
 {
-	?>
-	<script>
-		alert("Money Added Successfully!");
-		window.location.href = "dashboard.php";
-	</script>
-	<?php
+    ?>
+    <script>
+        alert("Money Added Successfully!");
+        window.location.href = "dashboard.php";
+    </script>
+    <?php
 }
 else
 {
-	?>
-	<script>
-		alert("Money unable to add!");
-		window.location.href = "dashboard.php";
-	</script>
-	<?php
+    ?>
+    <script>
+        alert("Money unable to add!");
+        window.location.href = "dashboard.php";
+    </script>
+    <?php
 }
 ?>
