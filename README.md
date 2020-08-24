@@ -1,8 +1,8 @@
 # Fin-Tech
 
->**Feel Free To Contribute.**
+> **Feel Free To Contribute.**
 
-## This Repo is Fin-Tech Project using PHP7.x, PHPmyadmin, mySQL5.x 
+## This Repo is Fin-Tech Project using PHP7.x, PHPmyadmin, mySQL5.x
 
 Features
 
@@ -10,15 +10,15 @@ Features
 2. Transaction History
 
 user test account - email@gmail.com  
-password - 1234  
- 
-# Setup  
+password - 1234
 
-Change credentials in config.php.  
+### Setup
 
-```php  
-<?php $con = mysqli_connect("localhost","user","password","database") or die(mysqli_error()); ?>  
-```  
+Change credentials in config.php.
+
+```php
+<?php $con = mysqli_connect("localhost","user","password","database") or die(mysqli_error($con)); ?>
+```
 
 Open PHPmyadmin create a database named project.  
-Import the travel.sql file in database folder.  
+Import the travel.sql file in database folder.

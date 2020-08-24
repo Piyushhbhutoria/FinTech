@@ -1,12 +1,11 @@
 <style type="text/css">
-    header{
+    header {
         padding: 10px;
     }
 </style>
 <?php
-if(isset($_SESSION['log'])=="")
-{
-    ?>
+if (isset($_SESSION['log']) == "") {
+?>
     <header style="background: black;">
         <div class="container">
 
@@ -70,11 +69,9 @@ if(isset($_SESSION['log'])=="")
             <!-- #nav-menu-container -->
         </div>
     </header>
-    <?php
-}
-else if($_SESSION['log1']=="user")
-{
-    ?>
+<?php
+} else if ($_SESSION['log1'] == "user") {
+?>
     <header style="background: black;">
         <div class="container">
 
@@ -138,11 +135,9 @@ else if($_SESSION['log1']=="user")
             <!-- #nav-menu-container -->
         </div>
     </header>
-    <?php
-}
-else
-{
-    ?>
+<?php
+} else {
+?>
     <header style="background: black;">
         <div class="container">
 
@@ -206,11 +201,11 @@ else
             <!-- #nav-menu-container -->
         </div>
     </header>
-    <?php
+<?php
 }
 ?>
 <script>
-    function myfunction(){
+    function myfunction() {
         alert("LogIn First");
     }
 </script>
