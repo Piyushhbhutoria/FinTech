@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 17, 2018 at 12:23 PM
--- Server version: 5.7.21
--- PHP Version: 7.2.4
+-- Host: localhost
+-- Generation Time: May 29, 2023 at 10:45 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,9 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `borrow`
 --
 
-DROP TABLE IF EXISTS `borrow`;
-CREATE TABLE IF NOT EXISTS `borrow` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `borrow` (
+  `id` int(11) NOT NULL,
   `title` text NOT NULL,
   `descrip` text NOT NULL,
   `category` text NOT NULL,
@@ -41,9 +39,8 @@ CREATE TABLE IF NOT EXISTS `borrow` (
   `borrowuid` int(11) NOT NULL,
   `date` date NOT NULL,
   `logo` text NOT NULL,
-  `collect` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `collect` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `borrow`
@@ -59,9 +56,8 @@ INSERT INTO `borrow` (`id`, `title`, `descrip`, `category`, `amount`, `part`, `t
 -- Table structure for table `borrowcrowd`
 --
 
-DROP TABLE IF EXISTS `borrowcrowd`;
-CREATE TABLE IF NOT EXISTS `borrowcrowd` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `borrowcrowd` (
+  `id` int(11) NOT NULL,
   `title` text NOT NULL,
   `descrip` text NOT NULL,
   `category` text NOT NULL,
@@ -70,9 +66,8 @@ CREATE TABLE IF NOT EXISTS `borrowcrowd` (
   `borrowuid` int(11) NOT NULL,
   `logo` text NOT NULL,
   `collect` int(11) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `borrowcrowd`
@@ -85,33 +80,17 @@ INSERT INTO `borrowcrowd` (`id`, `title`, `descrip`, `category`, `amount`, `user
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forgot`
---
-
-DROP TABLE IF EXISTS `forgot`;
-CREATE TABLE IF NOT EXISTS `forgot` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `invest`
 --
 
-DROP TABLE IF EXISTS `invest`;
-CREATE TABLE IF NOT EXISTS `invest` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `invest` (
+  `id` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `borrowuid` int(11) NOT NULL,
   `useruid` int(11) NOT NULL,
   `investuid` int(11) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `invest`
@@ -126,16 +105,14 @@ INSERT INTO `invest` (`id`, `amount`, `borrowuid`, `useruid`, `investuid`, `date
 -- Table structure for table `investcrowd`
 --
 
-DROP TABLE IF EXISTS `investcrowd`;
-CREATE TABLE IF NOT EXISTS `investcrowd` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `investcrowd` (
+  `id` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `useruid` int(11) NOT NULL,
   `borrowuid` int(11) NOT NULL,
   `date` date NOT NULL,
-  `investuid` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `investuid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `investcrowd`
@@ -155,16 +132,14 @@ INSERT INTO `investcrowd` (`id`, `amount`, `useruid`, `borrowuid`, `date`, `inve
 -- Table structure for table `transaction`
 --
 
-DROP TABLE IF EXISTS `transaction`;
-CREATE TABLE IF NOT EXISTS `transaction` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `transaction` (
+  `id` int(11) NOT NULL,
   `useruid` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `type` text NOT NULL,
   `transuid` int(11) NOT NULL,
-  `balance` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  `balance` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `transaction`
@@ -198,9 +173,8 @@ INSERT INTO `transaction` (`id`, `useruid`, `amount`, `type`, `transuid`, `balan
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `name` text NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
@@ -211,9 +185,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `aadhar` text NOT NULL,
   `bankname` text NOT NULL,
   `bankifsc` text NOT NULL,
-  `bank` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `bank` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user`
@@ -233,14 +206,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `contact`, `uid`, `date`,
 -- Table structure for table `wallet`
 --
 
-DROP TABLE IF EXISTS `wallet`;
-CREATE TABLE IF NOT EXISTS `wallet` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `wallet` (
+  `id` int(11) NOT NULL,
   `useruid` int(11) NOT NULL,
   `balance` int(11) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `wallet`
@@ -253,6 +224,131 @@ INSERT INTO `wallet` (`id`, `useruid`, `balance`, `date`) VALUES
 (4, 1034, 8000, '0000-00-00'),
 (5, 1053, 5000, '0000-00-00'),
 (6, 4, 0, '0000-00-00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `borrow`
+--
+ALTER TABLE `borrow`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `borrow_ibfk_1` (`useruid`);
+
+--
+-- Indexes for table `borrowcrowd`
+--
+ALTER TABLE `borrowcrowd`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `useruid` (`useruid`);
+
+--
+-- Indexes for table `invest`
+--
+ALTER TABLE `invest`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `useruid` (`useruid`);
+
+--
+-- Indexes for table `investcrowd`
+--
+ALTER TABLE `investcrowd`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `useruid` (`useruid`);
+
+--
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uid` (`uid`);
+
+--
+-- Indexes for table `wallet`
+--
+ALTER TABLE `wallet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `borrow`
+--
+ALTER TABLE `borrow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `borrowcrowd`
+--
+ALTER TABLE `borrowcrowd`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `invest`
+--
+ALTER TABLE `invest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `investcrowd`
+--
+ALTER TABLE `investcrowd`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `wallet`
+--
+ALTER TABLE `wallet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `borrow`
+--
+ALTER TABLE `borrow`
+  ADD CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`useruid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `borrowcrowd`
+--
+ALTER TABLE `borrowcrowd`
+  ADD CONSTRAINT `borrowcrowd_ibfk_1` FOREIGN KEY (`useruid`) REFERENCES `user` (`uid`);
+
+--
+-- Constraints for table `invest`
+--
+ALTER TABLE `invest`
+  ADD CONSTRAINT `invest_ibfk_1` FOREIGN KEY (`useruid`) REFERENCES `user` (`uid`);
+
+--
+-- Constraints for table `investcrowd`
+--
+ALTER TABLE `investcrowd`
+  ADD CONSTRAINT `investcrowd_ibfk_1` FOREIGN KEY (`useruid`) REFERENCES `user` (`uid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
