@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('config.php');
-$useruid = $_SESSION['log']['uid'];
+$useruid = $_SESSION['user_data']['uid'];
 $file = 'count.txt';
 //get the number from the file
 $uniq = file_get_contents($file);
@@ -16,18 +16,19 @@ $balance = $row['balance'] + $amt;
 $sql = mysqli_query($con, "UPDATE wallet SET balance='$balance' WHERE useruid='$useruid' ") or die(mysqli_error($con));
 $sql1 = mysqli_query($con, "INSERT INTO transaction (useruid, amount, type, transuid, balance) VALUES ('$useruid', '$amt', 'credit', '$uid', '$balance') ") or die(mysqli_error($con));
 if ($sql) {
-?>
+    ?>
     <script>
         alert("Money Added Successfully!");
         window.location.href = "dashboard.php";
     </script>
-<?php
+    <?php
 } else {
-?>
+    ?>
     <script>
         alert("Money unable to add!");
         window.location.href = "dashboard.php";
     </script>
-<?php
+    <?php
 }
 ?>
+

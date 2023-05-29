@@ -13,7 +13,7 @@ if ($amount < 1000) {
     $part = '1000';
 }
 $time = $_POST['time'];
-$useruid = $_SESSION['log']['uid'];
+$useruid = $_SESSION['user_data']['uid'];
 $file = 'count.txt';
 //get the number from the file
 $uniq = file_get_contents($file);

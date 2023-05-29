@@ -1,4 +1,4 @@
 <?php
-if(isset($_SESSION['log'])=="") {
-    header("location:index.php");
+if (empty($_SESSION['user_data']) == true) {
+	header("location:index.php");
 }

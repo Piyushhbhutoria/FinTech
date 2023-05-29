@@ -5,7 +5,7 @@ $title = $_POST['title'];
 $cat = $_POST['category'];
 $descrip = $_POST['descrip'];
 $amount = $_POST['amt'];
-$useruid = $_SESSION['log']['uid'];
+$useruid = $_SESSION['user_data']['uid'];
 $file = 'count.txt';
 //get the number from the file
 $uniq = file_get_contents($file);
